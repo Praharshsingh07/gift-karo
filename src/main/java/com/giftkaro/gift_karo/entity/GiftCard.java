@@ -9,8 +9,6 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "gift_cards")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class GiftCard {
 
     @Id
@@ -19,6 +17,66 @@ public class GiftCard {
 
     @Column(nullable = false)
     private String name;
+
+    public GiftCard() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    public LocalDate getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public BigDecimal getRemainingBalance() {
+        return remainingBalance;
+    }
+
+    public void setRemainingBalance(BigDecimal remainingBalance) {
+        this.remainingBalance = remainingBalance;
+    }
+
+    public GiftCard(Long id, String name, BigDecimal amount, LocalDate expirationDate, Restaurant restaurant, BigDecimal remainingBalance) {
+        this.id = id;
+        this.name = name;
+        this.amount = amount;
+        this.expirationDate = expirationDate;
+        this.restaurant = restaurant;
+        this.remainingBalance = remainingBalance;
+    }
 
     @Column(nullable = false)
     private BigDecimal amount;  // Changed price to amount to match previous code

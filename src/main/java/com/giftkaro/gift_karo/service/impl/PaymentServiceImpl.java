@@ -11,11 +11,15 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class PaymentServiceImpl implements PaymentService {
 
     private final UserRepository userRepository;
     private final GiftCardRepository giftCardRepository;
+
+    public PaymentServiceImpl(UserRepository userRepository, GiftCardRepository giftCardRepository) {
+        this.userRepository = userRepository;
+        this.giftCardRepository = giftCardRepository;
+    }
 
     @Override
     public boolean processPayment(Long userId, Long giftCardId, Double amount) {

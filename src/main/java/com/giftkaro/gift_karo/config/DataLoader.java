@@ -8,10 +8,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@RequiredArgsConstructor
 public class DataLoader {
 
     private final RoleRepository roleRepository;
+
+    public DataLoader(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
 
     @Bean
     ApplicationRunner loadData() {

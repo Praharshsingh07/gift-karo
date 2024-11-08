@@ -12,10 +12,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/restaurants")
-@RequiredArgsConstructor
 public class RestaurantController {
 
     private final RestaurantService restaurantService;
+
+    public RestaurantController(RestaurantService restaurantService) {
+        this.restaurantService = restaurantService;
+    }
 
     // Endpoint for adding a restaurant
     @PostMapping

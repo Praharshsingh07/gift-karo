@@ -16,8 +16,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class RestaurantServiceImpl implements RestaurantService {
+    public RestaurantServiceImpl(RestaurantRepository restaurantRepository, UserRepository userRepository, ModelMapper modelMapper) {
+        this.restaurantRepository = restaurantRepository;
+        this.userRepository = userRepository;
+        this.modelMapper = modelMapper;
+    }
 
     private final RestaurantRepository restaurantRepository;
     private final UserRepository userRepository;

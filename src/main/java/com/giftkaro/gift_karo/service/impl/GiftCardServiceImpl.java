@@ -18,11 +18,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class GiftCardServiceImpl implements GiftCardService {
 
     private final GiftCardRepository giftCardRepository;
     private final RestaurantRepository restaurantRepository;
+
+    public GiftCardServiceImpl(GiftCardRepository giftCardRepository, RestaurantRepository restaurantRepository, ModelMapper modelMapper, UserRepository userRepository) {
+        this.giftCardRepository = giftCardRepository;
+        this.restaurantRepository = restaurantRepository;
+        this.modelMapper = modelMapper;
+        this.userRepository = userRepository;
+    }
+
     private final ModelMapper modelMapper;
     private  final UserRepository userRepository;
 

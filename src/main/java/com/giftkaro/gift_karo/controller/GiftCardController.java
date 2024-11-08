@@ -12,10 +12,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/giftcards")
-@RequiredArgsConstructor
 public class GiftCardController {
 
     private final GiftCardService giftCardService;
+
+    public GiftCardController(GiftCardService giftCardService) {
+        this.giftCardService = giftCardService;
+    }
 
     // Endpoint for adding a gift card
     @PostMapping
